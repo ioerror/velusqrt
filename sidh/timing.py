@@ -13,8 +13,9 @@ def print_timing(ctx):
         from cpuinfo import get_cpu_info
         info = get_cpu_info()
         click.echo("python: {}".format(info['python_version']))
-        click.echo("cpu: {}".format(info['brand_raw']))
         click.echo("arch: {}".format(info['arch']))
+        click.echo("speed: {}".format(info['hz_actual']))
+        click.echo("cpu: {}".format(info['brand']))
     except:
         pass
     click.echo("Running ({} rounds):".format(rounds))
