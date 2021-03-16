@@ -16,6 +16,18 @@ For development:
 sudo pip install -e . 
 ```
 
+### Debian package build
+
+To build a package for Debian or Ubuntu, we suggest the use of stdeb:
+
+```
+sudo apt install -y dh-python python3-click  python3-sympy  python3-progress\
+  python3-numpy python3-matplotlib python3-statistics python3-networkx
+  python3-stdeb python3-setuptools-scm python3-setuptools
+python3 setup.py bdist_deb
+sudo dpkg -i deb_dist/python3-sidh_0.0.1-1_all.deb
+```
+
 ## Usage 
 The syntax compilation can be viewed by running one of the following three commands:
 ```bash
