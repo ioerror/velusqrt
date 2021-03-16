@@ -12,13 +12,13 @@ def print_timing(ctx):
     click.echo("Running ({} rounds):".format(rounds))
     from sidh.csidh import CSIDH
     c = CSIDH(**setting)
-    s = """sk = c.random_key()"""
+    s = """sk = c.secret_key()"""
     click.echo(s)
     click.echo("with garbage collection:")
     print(timeit.timeit(s, number=rounds, globals=locals(), setup='import gc;gc.enable()'))
     click.echo("without garbage collection:")
     print(timeit.timeit(s, number=rounds, globals=locals()))
-    s += """\npk = c.pubkey(sk)"""
+    s += """\npk = c.public_key(sk)"""
     click.echo("with garbage collection:")
     click.echo(s)
     print(timeit.timeit(s, number=rounds, globals=locals(), setup='import gc;gc.enable()'))
