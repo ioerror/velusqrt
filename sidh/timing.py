@@ -9,6 +9,14 @@ def print_timing(ctx):
     setting.pop('algo')
     setting.pop('algorithm')
     rounds = setting.pop('benchmark')
+    try:
+        from cpuinfo import get_cpu_info
+        info = get_cpu_info()
+        click.echo("python: {}".format(info['python_version']))
+        click.echo("cpu: {}".format(info['brand_raw']))
+        click.echo("arch: {}".format(info['arch']))
+    except:
+        pass
     click.echo("Running ({} rounds):".format(rounds))
     from sidh.csidh import CSIDH
     c = CSIDH(**setting)
