@@ -14,7 +14,7 @@ def print_timing(ctx):
         info = get_cpu_info()
         click.echo("python: {}".format(info['python_version']))
         click.echo("arch: {}".format(info['arch']))
-        click.echo("speed: {}".format(info['hz_actual']))
+        click.echo("speed: {}".format(str(info['hz_actual'])))
         click.echo("cpu: {}".format(info['brand']))
     except:
         pass
